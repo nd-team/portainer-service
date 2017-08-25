@@ -1,0 +1,91 @@
+{
+	"variables": [],
+	"info": {
+		"name": "portainer",
+		"_postman_id": "fb5ba4df-3ba0-2e5d-75d6-0ad863c79944",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "java创建Service",
+			"request": {
+				"url": "https://portainer.bjike.com/api/endpoints/144/docker/services/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"description": "此处需要修改"
+					},
+					{
+						"key": "Origin",
+						"value": "https://portainer.bjike.com",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://portainer.bjike.com/",
+						"description": ""
+					},
+					{
+						"key": "Host",
+						"value": "portainer.bjike.com",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"\",\n    \"TaskTemplate\": {\n        \"ContainerSpec\": {\n            \"Mounts\": [\n                {\n                    \"Source\": \"/root/issp\",\n                    \"Target\": \"/root/issp\",\n                    \"ReadOnly\": true,\n                    \"Type\": \"bind\",\n                    \"Id\": \"\"\n                }\n            ],\n            \"Image\": \"dounine/goddess-java:latest\",\n            \"Args\": [\n                \"/root/issp/docker/deploy.sh\"\n            ],\n            \"Env\": [\n                \"user=\",\n                \"password=\",\n                \"project=\"\n            ],\n            \"Labels\": {},\n            \"Secrets\": []\n        },\n        \"Placement\": {\n            \"Constraints\": [\n                \"node.labels.name!=sys\"\n            ],\n            \"Preferences\": []\n        }\n    },\n    \"Mode\": {\n        \"Replicated\": {\n            \"Replicas\": 1\n        }\n    },\n    \"EndpointSpec\": {\n        \"Ports\": []\n    },\n    \"Labels\": {},\n    \"Networks\": [\n        {\n            \"Target\": \"multihost\"\n        }\n    ],\n    \"UpdateConfig\": {\n        \"Parallelism\": 1,\n        \"Delay\": 0,\n        \"FailureAction\": \"pause\",\n        \"Order\": \"stop-first\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "node创建Service",
+			"request": {
+				"url": "https://portainer.bjike.com/api/endpoints/144/docker/services/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"description": "此处需要修改"
+					},
+					{
+						"key": "Origin",
+						"value": "https://portainer.bjike.com",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://portainer.bjike.com/",
+						"description": ""
+					},
+					{
+						"key": "Host",
+						"value": "portainer.bjike.com",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"\",\n    \"TaskTemplate\": {\n        \"ContainerSpec\": {\n            \"Mounts\": [\n                {\n                    \"Source\": \"/root/issp\",\n                    \"Target\": \"/root/issp\",\n                    \"ReadOnly\": true,\n                    \"Type\": \"bind\",\n                    \"Id\": \"\"\n                }\n            ],\n            \"Image\": \"dounine/goddess-node:latest\",\n            \"Args\": [\n                \"/root/issp/docker/node.sh\"\n            ],\n            \"Env\": [\n                \"user=\",\n                \"password=\",\n                \"project=\"\n            ],\n            \"Labels\": {},\n            \"Secrets\": []\n        },\n        \"Placement\": {\n            \"Constraints\": [\n                \"node.labels.name!=sys\"\n            ],\n            \"Preferences\": []\n        }\n    },\n    \"Mode\": {\n        \"Replicated\": {\n            \"Replicas\": 1\n        }\n    },\n    \"EndpointSpec\": {\n        \"Ports\": []\n    },\n    \"Labels\": {},\n    \"Networks\": [\n        {\n            \"Target\": \"multihost\"\n        }\n    ],\n    \"UpdateConfig\": {\n        \"Parallelism\": 1,\n        \"Delay\": 0,\n        \"FailureAction\": \"pause\",\n        \"Order\": \"stop-first\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
